@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0">
+            <style type = "text/css">
+            body{
+                margin: 0;
+            }
+            .divCss{
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                width:100%;
+                border:0px solid #000;
+                text-align:center;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+            .imgCss{
+                width:66px;
+            }
+            .imgLeftButtonCss{
+                height:40px;
+                margin-right:6.5px;
+            }
+            .imgRightButtonCss{
+                margin-left:6.5px;
+                height:40px;
+            }
+            a{
+                display: inline-block;
+                margin-top: 40px;
+                border-radius: 50px;
+            }
+            </style>
+
+            <script type="text/javascript">
+
+            </script>
+    </head>
+
+    <body style="background:#fff;">
+        <div class = 'divCss'>
+            <img class = "imgCss" src="wifi.png" />
+            <p style = "color:#bbb; font-size:16px" >亲,好像断网了!</p>
+            <a href="app://close"><img class = "imgLeftButtonCss" src = "h5_close.png" ></a>
+            <a href="app://refresh"><img class = "imgRightButtonCss" src = "h5_refresh.png" ></a>
+        </div>
+    </body>
+</html>

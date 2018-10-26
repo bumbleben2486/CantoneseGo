@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--五十音学日语的主色调-->
+    <color name="colorPrimary">#0ECD1B</color>
+    <!--豆瓣搜索栏的色调-->
+    <color name="colorPrimaryDark">#42BD55</color>
+    <!--网传豆瓣的主色调-->
+    <color name="colorAccent">#71C084</color>
+</resources>
