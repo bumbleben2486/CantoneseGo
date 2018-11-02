@@ -33,10 +33,11 @@ class SpecailWordFragment : BaseFragment() {
                 Toast.makeText(activity, "一次只能查询一个字", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-            Log.d("helloTAG", toUtf8String(searchWord))
-            searchWord = change(searchWord)
-            searchWord = toUtf8String(searchWord)
-            Log.d("helloTAG", toUtf8String(searchWord))
+            Log.d("helloTAG", Utils.unicodeToBig5(searchWord))
+//            searchWord = change("\\u65e0")
+//            searchWord = """无"""
+//            searchWord = toUtf8String(searchWord)
+            Log.d("helloTAG", Utils.unicodeToBig5(searchWord))
             Toast.makeText(activity, searchWord, Toast.LENGTH_LONG).show()
         }
     }
@@ -84,6 +85,7 @@ class SpecailWordFragment : BaseFragment() {
         }
         return sb.toString()
     }
+
 
     companion object {
         fun newInstance(): SpecailWordFragment {
