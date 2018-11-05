@@ -1,11 +1,8 @@
 package com.benjen.cantonesesearch;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-
-import static kotlin.text.Charsets.UTF_8;
 
 /**
  * @Author Benjen April
@@ -35,7 +32,7 @@ public class Utils {
     public static String unicodeToBig5(String s) {
         try {
 //            return new String(s.getBytes("Big5"), "ISO8859_1");
-            String output = URLEncoder.encode(s, "UTF-16");
+            String output = URLEncoder.encode(s, "Big5");
             return output;
         } catch (Exception e) {
             return s;

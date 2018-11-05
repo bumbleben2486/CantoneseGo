@@ -34,11 +34,11 @@ class SpecailWordFragment : BaseFragment() {
                 return@setOnClickListener
             }
             Log.d("helloTAG", Utils.unicodeToBig5(searchWord))
-//            searchWord = change("\\u65e0")
-//            searchWord = """无"""
-//            searchWord = toUtf8String(searchWord)
-            Log.d("helloTAG", Utils.unicodeToBig5(searchWord))
-            Toast.makeText(activity, searchWord, Toast.LENGTH_LONG).show()
+            searchWord = change(searchWord)
+            searchWord = Utils.unicodeToBig5(searchWord)
+            val url = "${AppConstant.SPECAIL_WORD_SEARCH_URL}$searchWord"
+//            Toast.makeText(activity, url, Toast.LENGTH_LONG).show()
+            wvShow.loadUrl(url)
         }
     }
 
