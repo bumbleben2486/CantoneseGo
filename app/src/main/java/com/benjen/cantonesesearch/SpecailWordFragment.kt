@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_specail_word.*
 import taobe.tec.jcc.JChineseConvertor
@@ -23,23 +24,36 @@ class SpecailWordFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnGo.setOnClickListener {
-            var searchWord = edtWord.text.toString()
-            if (searchWord.isEmpty()) {
-                Toast.makeText(activity, "查询不能为空", Toast.LENGTH_LONG).show()
-                return@setOnClickListener
+
+        edtWord.imeOptions = EditorInfo.IME_ACTION_SEND
+        edtWord.setOnEditorActionListener { v, actionId, event ->
+
+            if (actionId == EditorInfo.IME_ACTION_SEND) {
+                doTheSearchWork()
             }
-            if (searchWord.length != 1) {
-                Toast.makeText(activity, "一次只能查询一个字", Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
-            Log.d("helloTAG", Utils.unicodeToBig5(searchWord))
-            searchWord = change(searchWord)
-            searchWord = Utils.unicodeToBig5(searchWord)
-            val url = "${AppConstant.SPECAIL_WORD_SEARCH_URL}$searchWord"
-//            Toast.makeText(activity, url, Toast.LENGTH_LONG).show()
-            wvShow.loadUrl(url)
+            false
         }
+        btnGo.setOnClickListener {
+            doTheSearchWork()
+        }
+    }
+
+    private fun doTheSearchWork() {
+        var searchWord = edtWord.text.toString()
+        if (searchWord.isEmpty()) {
+            Toast.makeText(activity, "查询不能为空", Toast.LENGTH_LONG).show()
+            return
+        }
+        if (searchWord.length != 1) {
+            Toast.makeText(activity, "一次只能查询一个字", Toast.LENGTH_LONG).show()
+            return
+        }
+        Log.d("helloTAG", Utils.unicodeToBig5(searchWord))
+        searchWord = change(searchWord)
+        searchWord = Utils.unicodeToBig5(searchWord)
+        val url = "${AppConstant.SPECAIL_WORD_SEARCH_URL}$searchWord"
+        //            Toast.makeText(activity, url, Toast.LENGTH_LONG).show()
+        wvShow.loadUrl(url)
     }
 
     /**

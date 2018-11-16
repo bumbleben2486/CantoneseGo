@@ -6,4 +6,6 @@
     <color name="colorPrimaryDark">#42BD55</color>
     <!--网传豆瓣的主色调-->
     <color name="colorAccent">#71C084</color>
+    <!-- 美嘀嘀UI推荐的绿色-->
+    <color name="a_useful_green">#0BBF47</color>
 </resources>

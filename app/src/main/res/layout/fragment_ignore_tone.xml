@@ -13,6 +13,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="输入声母"
+        android:imeOptions="actionNext"
+        android:nextFocusForward="@+id/edt_finals"
+        android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,6 +26,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="输入韵母"
+        android:imeOptions="actionSend"
+        android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_initals" />
 
